@@ -7,9 +7,7 @@ function App() {
   const [formData, setFormData] = useState({ name: '', division: '' });
   const [status, setStatus] = useState('');
 
-  // --- JEBAKAN 3 (PORT SALAH) ---
-  // Server backend jalan di port 5000, tapi ini nembak ke 3000.
-  // Peserta harus ubah ini jadi 5000.
+
   const API_URL = "http://localhost:3000/api"; 
 
   useEffect(() => {
@@ -37,9 +35,6 @@ function App() {
     try {
       const response = await fetch(`${API_URL}/register`, {
         method: 'POST',
-        // --- JEBAKAN 4 (HEADER HILANG) ---
-        // Lupa kasih tahu server kalau data yang dikirim adalah JSON.
-        // Harus tambah: headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
